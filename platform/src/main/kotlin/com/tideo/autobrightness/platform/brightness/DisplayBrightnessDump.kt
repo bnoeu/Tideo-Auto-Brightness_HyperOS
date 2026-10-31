@@ -6,7 +6,8 @@ import kotlin.concurrent.thread
 
 /** Runs `dumpsys display` and keeps only its brightness lines; also used inside the Shizuku user service. */
 object DisplayBrightnessDump {
-    const val TIMEOUT_SECONDS = 5L
+    // HyperOS fork: `dumpsys display` on HyperOS is ~1,000 lines and can exceed 5 s.
+    const val TIMEOUT_SECONDS = 15L
     private const val REAP_MS = 2_000L
     private const val MAX_LINES = 32
     private const val MAX_LINE_CHARS = 512

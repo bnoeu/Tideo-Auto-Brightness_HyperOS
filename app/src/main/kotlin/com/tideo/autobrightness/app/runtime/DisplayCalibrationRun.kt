@@ -110,7 +110,8 @@ internal class DisplayCalibrationRun(
     private companion object {
         const val FIRST_POINT_SETTLE_MS = 800L
         const val POLL_MS = 150L
-        const val STABLE_WINDOW_MS = 3_000L
+        // HyperOS fork: one `dumpsys display` can take seconds there, so allow room for two reads.
+        const val STABLE_WINDOW_MS = 12_000L
         const val MAX_POLLS = (STABLE_WINDOW_MS / POLL_MS).toInt()
     }
 }
